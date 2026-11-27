@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohamed Helmi — System Administrator</title>
+<meta name="description" content="Portfolio of Mohamed Helmi, System Administrator based in Cairo, Egypt. Windows Server, Active Directory, Cisco networking, FortiGate security.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface-2: #1c2330;
+    --border: #2a3340;
+    --text: #e6edf3;
+    --muted: #9aa7b4;
+    --accent: #4da3ff;
+    --accent-soft: rgba(77, 163, 255, 0.12);
+    --maxw: 920px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Header */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(13, 17, 23, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav {
+    max-width: var(--maxw); margin: 0 auto; padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .nav .brand { font-weight: 700; font-size: 1.05rem; letter-spacing: 0.2px; color: var(--text); }
+  .nav .brand:hover { text-decoration: none; }
+  .nav ul { list-style: none; display: flex; gap: 20px; flex-wrap: wrap; }
+  .nav ul a { color: var(--muted); font-size: 0.9rem; font-weight: 500; }
+  .nav ul a:hover { color: var(--text); text-decoration: none; }
+
+  main { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  /* Hero */
+  .hero { padding: 84px 0 64px; border-bottom: 1px solid var(--border); }
+  .hero .eyebrow {
+    display: inline-block; font-size: 0.8rem; font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--accent);
+    background: var(--accent-soft); border: 1px solid rgba(77,163,255,0.3);
+    padding: 6px 14px; border-radius: 999px; margin-bottom: 22px;
+  }
+  .hero h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); font-weight: 800; letter-spacing: -1px; line-height: 1.1; }
+  .hero .role { font-size: clamp(1.1rem, 3vw, 1.45rem); color: var(--muted); font-weight: 500; margin-top: 12px; }
+  .hero .summary { max-width: 640px; color: var(--muted); margin-top: 20px; font-size: 1.02rem; }
+  .hero .cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 22px; border-radius: 8px; font-weight: 600; font-size: 0.95rem;
+    border: 1px solid var(--border); transition: background 0.15s, border-color 0.15s;
+  }
+  .btn:hover { text-decoration: none; }
+  .btn-primary { background: var(--accent); border-color: var(--accent); color: #06121f; }
+  .btn-primary:hover { background: #6cb4ff; }
+  .btn-ghost { color: var(--text); background: var(--surface); }
+  .btn-ghost:hover { border-color: var(--accent); }
+
+  /* Sections */
+  section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+  .section-title { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.4px; margin-bottom: 6px; }
+  .section-sub { color: var(--muted); font-size: 0.95rem; margin-bottom: 28px; }
+
+  /* Skills */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; }
+  .skill-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px;
+  }
+  .skill-card h3 { font-size: 0.98rem; font-weight: 600; margin-bottom: 5px; }
+  .skill-card p { color: var(--muted); font-size: 0.88rem; }
+
+  /* Experience timeline */
+  .job { position: relative; padding-left: 26px; padding-bottom: 36px; border-left: 2px solid var(--border); }
+  .job:last-child { padding-bottom: 0; }
+  .job::before {
+    content: ''; position: absolute; left: -7px; top: 6px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--accent); border: 2px solid var(--bg);
+  }
+  .job h3 { font-size: 1.15rem; font-weight: 700; }
+  .job .org { color: var(--text); font-weight: 500; font-size: 0.95rem; }
+  .job .dates { color: var(--accent); font-size: 0.85rem; font-weight: 600; margin: 2px 0 12px; }
+  .job ul { list-style: none; }
+  .job ul li { color: var(--muted); font-size: 0.94rem; padding-left: 20px; position: relative; margin-bottom: 8px; }
+  .job ul li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); }
+
+  /* Two-column info blocks */
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  @media (max-width: 700px) { .info-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .info-block h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; }
+  .edu-item, .lang-item { margin-bottom: 14px; }
+  .edu-item .degree { font-weight: 600; }
+  .edu-item .meta, .lang-item .meta { color: var(--muted); font-size: 0.9rem; }
+  .lang-row { display: flex; justify-content: space-between; max-width: 320px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .lang-row .level { color: var(--muted); }
+
+  /* Training */
+  .course { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+  .course h3 { font-size: 1rem; font-weight: 600; }
+  .course p { color: var(--muted); font-size: 0.88rem; }
+  .badge {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 999px; white-space: nowrap;
+  }
+  .badge-done { color: #7ee2a8; background: rgba(126, 226, 168, 0.1); border: 1px solid rgba(126,226,168,0.3); }
+  .badge-progress { color: #ffd479; background: rgba(255, 212, 121, 0.1); border: 1px solid rgba(255,212,121,0.3); }
+  .note {
+    margin-top: 18px; padding: 14px 18px; border-radius: 10px;
+    background: var(--accent-soft); border: 1px solid rgba(77,163,255,0.25);
+    color: var(--muted); font-size: 0.88rem;
+  }
+
+  /* Contact */
+  .contact-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+  .contact-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 20px; display: block; transition: border-color 0.15s;
+  }
+  a.contact-card:hover { border-color: var(--accent); text-decoration: none; }
+  .contact-card .label { color: var(--muted); font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .contact-card .value { color: var(--text); font-weight: 600; font-size: 0.98rem; word-break: break-word; }
+
+  footer { padding: 32px 24px 48px; text-align: center; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--border); }
+
+  @media (max-width: 640px) {
+    .nav ul { gap: 12px; }
+    .hero { padding: 56px 0 48px; }
+    section { padding: 44px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a class="brand" href="#top">Mohamed Helmi</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#training">Training</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+
+  <div class="hero">
+    <span class="eyebrow">System Administrator</span>
+    <h1>Mohamed Helmi</h1>
+    <p class="role">System Administrator · Cairo, Egypt</p>
+    <p class="summary">System Administrator with hands-on experience managing networks, Windows Server environments, and IT infrastructure.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="mailto:mohamedhelmi4040@gmail.com">Get in touch</a>
+      <a class="btn btn-ghost" href="#experience">View experience</a>
+    </div>
+  </div>
+
+  <section id="about">
+    <h2 class="section-title">About</h2>
+    <p class="section-sub">A quick overview</p>
+    <p style="color: var(--muted); max-width: 720px;">Skilled in Active Directory, Cisco networking, and FortiGate security. Completed professional training in CCNA, MCSA, and FortiGate, with a proven record of implementing security policies, delivering reliable backup and disaster recovery, and providing technical support.</p>
+  </section>
+
+  <section id="skills">
+    <h2 class="section-title">Core skills</h2>
+    <p class="section-sub">What I work with every day</p>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Windows Server Administration</h3>
+        <p>Active Directory, Group Policy, DHCP, DNS</p>
+      </div>
+      <div class="skill-card">
+        <h3>Network Administration</h3>
+        <p>LAN/WAN, TCP/IP, VLANs, Cisco routers and switches</p>
+      </div>
+      <div class="skill-card">
+        <h3>Network Security</h3>
+        <p>FortiGate firewall configuration and management</p>
+      </div>
+      <div class="skill-card">
+        <h3>Backup &amp; Disaster Recovery</h3>
+        <p>Veeam</p>
+      </div>
+      <div class="skill-card">
+        <h3>IT Support</h3>
+        <p>Hardware and software troubleshooting</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2 class="section-title">Professional experience</h2>
+    <p class="section-sub">Where I've worked</p>
+
+    <div class="job">
+      <h3>System Administrator</h3>
+      <p class="org">Gheriany International School, Egypt</p>
+      <p class="dates">Dec 2023 — Present</p>
+      <ul>
+        <li>Manage Windows Server and Active Directory environments, including user authentication, Group Policy, DHCP, and DNS.</li>
+        <li>Configure and maintain FortiGate firewalls to secure the network and reduce cyber threats by 60%.</li>
+        <li>Automated daily backups using Veeam, ensuring 100% data recovery readiness with zero data loss incidents.</li>
+        <li>Led the Active Directory infrastructure upgrade, improving user authentication, security, and operational efficiency.</li>
+        <li>Perform hardware and software troubleshooting and provide technical support to users.</li>
+        <li>Implement disaster recovery plans and conduct regular system backups.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <h3>Air Defense Officer</h3>
+      <p class="org">Egyptian Armed Forces</p>
+      <p class="dates">Jul 2013 — Jan 2020</p>
+      <ul>
+        <li>Trained and supervised soldiers in the operation of various weapon systems.</li>
+        <li>Led teams in a disciplined, high-responsibility environment.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="info-grid">
+      <div class="info-block">
+        <h2 class="section-title">Education</h2>
+        <p class="section-sub">Academic background</p>
+        <div class="edu-item">
+          <p class="degree">Bachelor of Engineering</p>
+          <p class="meta">Faculty of Engineering, Alexandria University</p>
+          <p class="meta">2008 — 2013</p>
+        </div>
+      </div>
+      <div class="info-block">
+        <h2 class="section-title">Languages</h2>
+        <p class="section-sub">How I communicate</p>
+        <div class="lang-row"><span>Arabic</span><span class="level">Native</span></div>
+        <div class="lang-row"><span>English</span><span class="level">Intermediate</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="training">
+    <h2 class="section-title">Training &amp; courses</h2>
+    <p class="section-sub">Professional development</p>
+
+    <div class="course">
+      <div>
+        <h3>Cisco Certified Network Associate (CCNA)</h3>
+        <p>Online course completed</p>
+      </div>
+      <span class="badge badge-progress">Exam in progress</span>
+    </div>
+
+    <div class="course">
+      <div>
+        <h3>Microsoft Certified Solutions Associate (MCSA)</h3>
+        <p>Online course completed</p>
+      </div>
+      <span class="badge badge-done">Course completed</span>
+    </div>
+
+    <div class="course">
+      <div>
+        <h3>FortiGate Firewall</h3>
+        <p>Online course completed</p>
+      </div>
+      <span class="badge badge-done">Course completed</span>
+    </div>
+
+    <div class="course">
+      <div>
+        <h3>Embedded Systems</h3>
+        <p>National Institute of Communications</p>
+      </div>
+      <span class="badge badge-done">Course completed</span>
+    </div>
+
+    <div class="course">
+      <div>
+        <h3>Computer Maintenance</h3>
+        <p>Nile Academy</p>
+      </div>
+      <span class="badge badge-done">Course completed</span>
+    </div>
+
+    <div class="note">
+      Certification status: CCNA, MCSA, and FortiGate are completed professional training courses. The CCNA certification exam is currently in progress.
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <p class="section-sub">Let's talk</p>
+    <div class="contact-cards">
+      <div class="contact-card">
+        <p class="label">Location</p>
+        <p class="value">Cairo, Egypt</p>
+      </div>
+      <a class="contact-card" href="mailto:mohamedhelmi4040@gmail.com">
+        <p class="label">Email</p>
+        <p class="value">mohamedhelmi4040@gmail.com</p>
+      </a>
+      <a class="contact-card" href="tel:+201113237211">
+        <p class="label">Phone</p>
+        <p class="value">+20 111 323 7211</p>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Mohamed Helmi · System Administrator · Cairo, Egypt</p>
+</footer>
+
+</body>
+</html>
